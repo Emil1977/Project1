@@ -42,37 +42,44 @@ if(isset($_GET['delete'])){
 
    <div class="box-container">
 
-   <div class="box">
-      <p>Add New Admin</p>
-      <a href="register_admin.php" class="option-btn">Register Admin</a>
-   </div>
-
-   <?php
-      $select_accounts = $conn->prepare("SELECT * FROM `admins`");
-      $select_accounts->execute();
-      if($select_accounts->rowCount() > 0){
-         while($fetch_accounts = $select_accounts->fetch(PDO::FETCH_ASSOC)){   
-   ?>
-   <div class="box">
-      <p> Admin Id : <span><?= $fetch_accounts['id']; ?></span> </p>
-      <p> Admin name : <span><?= $fetch_accounts['name']; ?></span> </p>
-      <div class="flex-btn">
-         <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" onclick="return confirm('delete this account?')" class="delete-btn">delete</a>
-         <?php
-            if($fetch_accounts['id'] == $admin_id){
-               echo '<a href="update_profile.php" class="option-btn">update</a>';
-            }
-         ?>
+      <div class="box">
+         <p>Add New Admin</p>
+         <a href="register_admin.php" class="option-btn">Register Admin</a>
       </div>
-   </div>
-   <?php
-         }
-      }else{
-         echo '<p class="empty">no accounts available!</p>';
-      }
-   ?>
+      
+      
+      
+      
+      <?php
+         $select_accounts = $conn->prepare("SELECT * FROM `admins`");
+         $select_accounts->execute();
+         if($select_accounts->rowCount() > 0){
+            while($fetch_accounts = $select_accounts->fetch(PDO::FETCH_ASSOC)){   
+      ?>
+      </div>
+      <div class="box-container">  
+         <div class="box">
+            <p> Admin Id : <span><?= $fetch_accounts['id']; ?></span> </p>
+            <p> Admin name : <span><?= $fetch_accounts['name']; ?></span> </p>
+            <div class="flex-btn">
+               <a href="admin_accounts.php?delete=<?= $fetch_accounts['id']; ?>" onclick="return confirm('delete this account?')" class="delete-btn">delete</a>
+               <?php
+                  if($fetch_accounts['id'] == $admin_id){
+                     echo '<a href="update_profile.php" class="option-btn">update</a>';
+                  }
+               ?>
+            </div>
+         </div>
+      
 
-   </div>
+      <?php
+            }
+         }else{
+            echo '<p class="empty">no accounts available!</p>';
+         }
+         ?>
+
+</div>
 
 </section>
 

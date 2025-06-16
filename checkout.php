@@ -69,7 +69,7 @@ if(isset($_POST['order'])){
 
    <form action="" method="POST">
 
-   <h3>Your Orders</h3>
+   <h3>Deine Bestellung</h3>
 
       <div class="display-orders">
       <?php
@@ -83,52 +83,51 @@ if(isset($_POST['order'])){
                $total_products = implode($cart_items);
                $grand_total += ($fetch_cart['price'] * $fetch_cart['quantity']);
       ?>
-         <p> <?= $fetch_cart['name']; ?> <span>(<?= '$'.$fetch_cart['price'].'/- x '. $fetch_cart['quantity']; ?>)</span> </p>
+         <p> <?= $fetch_cart['name']; ?> <span><br><?= '€'.$fetch_cart['price'].',-  '.  $fetch_cart['quantity'].' Stück'; ?></span> </p>
       <?php
             }
          }else{
-            echo '<p class="empty">your cart is empty!</p>';
+            echo '<p class="empty">Dein Warenkorb ist leer!</p>';
          }
       ?>
          <input type="hidden" name="total_products" value="<?= $total_products; ?>">
          <input type="hidden" name="total_price" value="<?= $grand_total; ?>" value="">
-         <div class="grand-total">Grand Total : <span> ₹ <?= $grand_total; ?>/-</span></div>
+         <div class="grand-total">Gesamtpreis : <span> € <?= $grand_total; ?>,-</span></div>
       </div>
 
-      <h3>place your orders</h3>
+      <h3>Gib deine Lieferadresse ein</h3>
 
       <div class="flex">
          <div class="inputBox">
-            <span>Tapaiko subh nam :</span>
+            <span>Vor. / Nachname :</span>
             <input type="text" name="name" placeholder="enter your name" class="box" maxlength="20" required>
          </div>
          <div class="inputBox">
-            <span>Your Number :</span>
+            <span>Telefonnummer :</span>
             <input type="number" name="number" placeholder="enter your number" class="box" min="0" max="9999999999" onkeypress="if(this.value.length == 10) return false;" required>
          </div>
          <div class="inputBox">
-            <span>Your Email :</span>
+            <span>Emailadresse :</span>
             <input type="email" name="email" placeholder="enter your email" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
-            <span>kasari halnuhunx paisa? :</span>
+            <span>Wie möchtest Du Bezahlen? :</span>
             <select name="method" class="box" required>
-               <option value="cash on delivery">Cash On Delivery</option>
+               <option value="cash on delivery">PayPal</option>
                <option value="credit card">Credit Card</option>
-               <option value="paytm">eSewa</option>
-               <option value="paypal">Khalti</option>
+               <option value="paytm">Überweiseung</option>
             </select>
          </div>
          <div class="inputBox">
-            <span>Address line 01 :</span>
+            <span>Staße Hausnummer :</span>
             <input type="text" name="flat" placeholder="e.g. Flat number" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
-            <span>Address line 02 :</span>
+            <span>Postleitzahl :</span>
             <input type="text" name="street" placeholder="Street name" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
-            <span>City :</span>
+            <span>Stadt :</span>
             <input type="text" name="city" placeholder="Kathmandu" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">

@@ -36,7 +36,7 @@ if(!isset($admin_id)){
    <div class="box-container">
 
       <div class="box">
-         <h3>Welcome!</h3>
+         <h3>Wilkommen!</h3>
          <p><?= $fetch_profile['name']; ?></p>
          <a href="update_profile.php" class="btn">Update Profile</a>
       </div>
@@ -52,9 +52,9 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span> ₹ </span><?= $total_pendings; ?><span>/-</span></h3>
-         <p>Total pendings</p>
-         <a href="placed_orders.php" class="btn">See Orders.</a>
+         <h3><span> € </span><?= $total_pendings; ?><span>,-</span></h3>
+         <p>Offene Rechnungen</p>
+         <a href="placed_orders.php" class="btn">Rechnungen</a>
       </div>
 
       <div class="box">
@@ -68,9 +68,9 @@ if(!isset($admin_id)){
                }
             }
          ?>
-         <h3><span> ₹ </span><?= $total_completes; ?><span>/-</span></h3>
-         <p>Completed orders</p>
-         <a href="placed_orders.php" class="btn">See orders</a>
+         <h3><span> € </span><?= $total_completes; ?><span>,-</span></h3>
+         <p>Beendete</p>
+         <a href="placed_orders.php" class="btn">Bestellungen</a>
       </div>
 
       <div class="box">
@@ -80,8 +80,8 @@ if(!isset($admin_id)){
             $number_of_orders = $select_orders->rowCount()
          ?>
          <h3><?= $number_of_orders; ?></h3>
-         <p>Orders Placed.</p>
-         <a href="placed_orders.php" class="btn">See orders.</a>
+         <p>Offene</p>
+         <a href="placed_orders.php" class="btn">Bestellungen</a>
       </div>
 
       <div class="box">
@@ -91,8 +91,8 @@ if(!isset($admin_id)){
             $number_of_products = $select_products->rowCount()
          ?>
          <h3><?= $number_of_products; ?></h3>
-         <p>Products added</p>
-         <a href="products.php" class="btn">See products</a>
+         <p>Produkte</p>
+         <a href="products.php" class="btn">Produkte</a>
       </div>
 
       <div class="box">
@@ -102,8 +102,8 @@ if(!isset($admin_id)){
             $number_of_users = $select_users->rowCount()
          ?>
          <h3><?= $number_of_users; ?></h3>
-         <p>Normal users</p>
-         <a href="users_accounts.php" class="btn">See Users</a>
+         <p>Benutzer</p>
+         <a href="users_accounts.php" class="btn">Benutzer</a>
       </div>
 
       <div class="box">
@@ -113,8 +113,8 @@ if(!isset($admin_id)){
             $number_of_admins = $select_admins->rowCount()
          ?>
          <h3><?= $number_of_admins; ?></h3>
-         <p>Admin users</p>
-         <a href="admin_accounts.php" class="btn">See admins</a>
+         <p>Admin</p>
+         <a href="admin_accounts.php" class="btn">Admin</a>
       </div>
 
       <div class="box">
@@ -124,8 +124,8 @@ if(!isset($admin_id)){
             $number_of_messages = $select_messages->rowCount()
          ?>
          <h3><?= $number_of_messages; ?></h3>
-         <p>New messages</p>
-         <a href="messages.php" class="btn">See messages</a>
+         <p>Neue Nachrichten</p>
+         <a href="messages.php" class="btn">Nachrichten</a>
       </div>
 
    </div>

@@ -34,13 +34,7 @@ include 'components/wishlist_cart.php';
 <body>
    
  <!-- Ganpati  -->
-<div class="header-1">
 
-    <a href="home.php" class="logo"><span> </span></a>
-                         
- <!--End Ganpati  -->
-  
-</div>
 <?php include 'components/user_header.php'; ?>
 
 <div class="home-bg">
@@ -50,6 +44,17 @@ include 'components/wishlist_cart.php';
    <div class="swiper home-slider">
    
    <div class="swiper-wrapper">
+
+      <div class="swiper-slide slide">
+         <div class="image">
+            <img src="img/tischdecke-bienen-xs.png" alt="">
+         </div>
+         <div class="content">
+            <span>Handgenäht</span>
+            <h3>Tischdecke</h3>
+            <a href="category.php?category=tisch" class="btn">Shop Now</a>
+         </div>
+      </div>
 
       <div class="swiper-slide slide">
          <div class="image">
@@ -64,25 +69,26 @@ include 'components/wishlist_cart.php';
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/home-img-2.png" alt="">
+            <img src="img/kissen-herbst-xs.png" alt="">
          </div>
          <div class="content">
-            <span>Upto 50% off</span>
-            <h3>Latest Watches</h3>
-            <a href="category.php?category=watch" class="btn">Shop Now.</a>
+            <span>Handgenäht</span>
+            <h3>Kissenbezug</h3>
+            <a href="category.php?category=kissen" class="btn">Shop Now</a>
          </div>
       </div>
 
       <div class="swiper-slide slide">
          <div class="image">
-            <img src="images/Grocery-Transparent-PNG (1).png" alt="">
+            <img src="img/Blumenkranz1.png" alt="">
          </div>
          <div class="content">
-            <span>upto 50% off</span>
-            <h3>Latest headsets</h3>
-            <a href="shop.php" class="btn">Shop Now.</a>
+            <span>Handgefärtigt</span>
+            <h3>Blumenkränze</h3>
+            <a href="category.php?category=kranz" class="btn">Shop Now</a>
          </div>
       </div>
+
 
    </div>
 
@@ -93,7 +99,7 @@ include 'components/wishlist_cart.php';
 </section>
 
 </div>
-
+<!--
 <section class="category">
 
    <h1 class="heading">Shop by Category</h1>
@@ -149,10 +155,10 @@ include 'components/wishlist_cart.php';
    </div>
 
 </section>
-
+-->
 <section class="home-products">
 
-   <h1 class="heading">Latest products</h1>
+   <h1 class="heading">Neuste Produkte</h1>
 
    <div class="swiper products-slider">
 
@@ -174,10 +180,10 @@ include 'components/wishlist_cart.php';
       <img src="uploaded_img/<?= $fetch_product['image_01']; ?>" alt="">
       <div class="name"><?= $fetch_product['name']; ?></div>
       <div class="flex">
-         <div class="price"><span> ₹ </span><?= $fetch_product['price']; ?><span>/-</span></div>
+         <div class="price"><span> € </span><?= $fetch_product['price']; ?><span>,-</span></div>
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
       </div>
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+      <input type="submit" value="In den Warenkorb" class="btn" name="add_to_cart">
    </form>
    <?php
       }
@@ -196,6 +202,7 @@ include 'components/wishlist_cart.php';
 
 <!-- newsletter section starts  -->
 
+<!--
 <section class="newsletter" id="newsletter">
 
     <h1>Newsletter</h1>
@@ -214,13 +221,14 @@ include 'components/wishlist_cart.php';
     </form>
 
 </section>
+-->
 
 <!-- newsletter section ends -->
 
 
 
  <!-- deal section starts  -->
-
+<!--
 <section class="deal" id="deal">
 
 <h1 class="heading"> <span> BEST DEALS </span> </h1>
@@ -251,7 +259,7 @@ include 'components/wishlist_cart.php';
 </div>
 
 </section>
-
+-->
 <!-- deal section ends -->
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 14. Jun 2025 um 12:42
+-- Erstellungszeit: 16. Jun 2025 um 22:03
 -- Server-Version: 10.4.32-MariaDB
 -- PHP-Version: 8.2.12
 
@@ -39,7 +39,8 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`id`, `name`, `password`) VALUES
 (1, 'admin', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2'),
-(2, 'Rene', '601a6bde13c76e688f91c54079b32179b0a1094b');
+(2, 'Rene', '601a6bde13c76e688f91c54079b32179b0a1094b'),
+(3, 'admin2', '6216f8a75fd5bb3d5f22b6f9958cdede3fc086c2');
 
 -- --------------------------------------------------------
 
@@ -62,8 +63,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `pid`, `name`, `price`, `quantity`, `image`) VALUES
-(6, 31, 9, 'Nelke Aquarell Karte', 5, 1, 'smilla.jpg'),
-(7, 4, 8, 'Nelke Aquarell', 5, 1, 'blume_klein.png');
+(6, 4, 9, 'Nelke Aquarell Karte', 5, 1, 'smilla.jpg'),
+(7, 4, 8, 'Nelke Aquarell', 5, 1, 'blume_klein.png'),
+(10, 4, 10, 'Blumenkranz', 39, 1, 'Blumenkranz1-xs.png'),
+(11, 4, 12, 'Kissen', 12, 1, 'kissen-herbst-xs.png');
 
 -- --------------------------------------------------------
 
@@ -81,9 +84,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
-(1, 'robot'),
-(2, 'mouse'),
-(3, 'mic');
+(1, 'aquarell'),
+(2, 'Kranz'),
+(3, 'Tischdecken');
 
 -- --------------------------------------------------------
 
@@ -128,13 +131,6 @@ CREATE TABLE `orders` (
   `payment_status` varchar(20) NOT NULL DEFAULT 'pending'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `total_products`, `total_price`, `placed_on`, `payment_status`) VALUES
-(3, 1, 'dfgsdg', '7689', 'rakesh@gmail.com', 'credit card', 'flat no. 3563, 56tgs, dvs, adf, India - 576556', 'Tata (27 x 1) - ', 27, '2024-08-17', '');
-
 -- --------------------------------------------------------
 
 --
@@ -161,7 +157,6 @@ CREATE TABLE `products` (
   `price` int(10) NOT NULL,
   `image_01` varchar(100) NOT NULL,
   `image_02` varchar(100) NOT NULL,
-  `image_03` varchar(100) NOT NULL,
   `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -169,10 +164,13 @@ CREATE TABLE `products` (
 -- Daten für Tabelle `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `details`, `category`, `price`, `image_01`, `image_02`, `image_03`, `category_id`) VALUES
-(8, 'Nelke Aquarell', 'Karte mit Nelken in Aquarell.\r\nGröße 17x21 cm', 'aquarell', 5, 'blume_klein.png', 'blume_klein.png', 'blume_klein.png', NULL),
-(9, 'Nelke Aquarell Karte', 'Nelke Karte Aquarell Handgefertigt ', 'Aquarell', 5, 'blume_klein.png', 'blume_klein.png', 'blume_klein.png', NULL),
-(10, 'Blumenkranz', 'Blumen ', 'Kranz', 100, 'smilla-klein.jpg', 'smilla-klein.jpg', '', NULL);
+INSERT INTO `products` (`id`, `name`, `details`, `category`, `price`, `image_01`, `image_02`, `category_id`) VALUES
+(8, 'Nelke Aquarell', 'Karte mit Nelken in Aquarell.\r\nGröße 17x21 cm', 'aquarell', 5, 'blume_klein.png', 'blume_klein.png', NULL),
+(9, 'Nelke Aquarell Karte', 'Nelke Karte Aquarell Handgefertigt ', 'aquarell', 5, 'blume_klein.png', 'blume_klein.png', NULL),
+(10, 'Blumenkranz mit Rosen', 'Blumenkranz mit Rosen ', 'kranz', 39, 'Blumenkranz1-xs.png', 'Blumenkranz1-klein.png', NULL),
+(11, 'tischdecke', 'Tischdecke mit Bienen ', 'decken', 15, 'tischdecke-bienen-xs.png', 'tischdecke-bienen-xs.png', NULL),
+(12, 'Kissen', 'Kissenbezug 40 x 40', 'kissen', 12, 'kissen-herbst-xs.png', 'kissen-herbst-xs.png', NULL),
+(13, 'Tischläufer Bienen', 'Tischläufer 120 x 40', 'decken', 29, 'tischdecke-bienen-xs.png', 'tischdecke-bienen-xs.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -192,9 +190,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
-(1, 'Rakesh', 'rakesh@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(2, 'Rk', 'rk@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220'),
-(4, 'Susi', 's.boettcher@heim-vernetzt.de', 'ad677b652507a6981e0d99d732c8a5eca8e944c0');
+(4, 'Susi', 's.boettcher@bysmilla.de', 'ad677b652507a6981e0d99d732c8a5eca8e944c0');
 
 -- --------------------------------------------------------
 
@@ -279,13 +275,13 @@ ALTER TABLE `wishlist`
 -- AUTO_INCREMENT für Tabelle `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT für Tabelle `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT für Tabelle `categories`
@@ -315,7 +311,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT für Tabelle `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
@@ -327,7 +323,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints der exportierten Tabellen

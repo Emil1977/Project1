@@ -22,7 +22,7 @@
          <h3>Contact Us.</h3>
          <a href="tel:9800000000"><i class="fas fa-phone"></i> +46 176 70175028</a>
          
-         <a href="mailto:info@smilla.de"><i class="fas fa-envelope"></i> info@smilla.de</a>
+         <a href="mailto:info@smilla.de"><i class="fas fa-envelope"></i> info@bysmilla.de</a>
          <a href="https://maps.app.goo.gl/eBHLdaqLvHurHi6R9"><i class="fas fa-map-marker-alt"></i> Germany </a>
       </div>
 
@@ -39,6 +39,6 @@
       
    </section>
    
-   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>By Smilla</span> | all rights reserved!</div>
+   <div class="credit">&copy; copyright @ <?= date('Y'); ?> by <span>By Smilla</span> | alle Rechte vorbehalten!</div>
 
 </footer>

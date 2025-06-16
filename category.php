@@ -20,14 +20,14 @@ include 'components/wishlist_cart.php';
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Category</title>
+   <title>Kategorie</title>
    
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-
+<!-- %{$category}% -->
 </head>
 <body>
    
@@ -35,7 +35,7 @@ include 'components/wishlist_cart.php';
 
 <section class="products">
 
-   <h1 class="heading">Category</h1>
+   <h1 class="heading">Kategorie</h1>
 
    <div class="box-container">
 
@@ -49,7 +49,6 @@ include 'components/wishlist_cart.php';
    <form action="" method="post" class="box">
       <input type="hidden" name="pid" value="<?= $fetch_product['id']; ?>">
       <input type="hidden" name="name" value="<?= $fetch_product['name']; ?>">
-      
       <input type="hidden" name="price" value="<?= $fetch_product['price']; ?>">
       <input type="hidden" name="image" value="<?= $fetch_product['image_01']; ?>">
       <button class="fas fa-heart" type="submit" name="add_to_wishlist"></button>
@@ -60,12 +59,12 @@ include 'components/wishlist_cart.php';
          <div class="price"><span> € </span><?= $fetch_product['price']; ?><span>,-</span></div>
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
       </div>
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+      <input type="submit" value="In den Warenkorb" class="btn" name="add_to_cart">
    </form>
    <?php
       }
    }else{
-      echo '<p class="empty">no products found!</p>';
+      echo '<p class="empty">Keine Produkte gefunden!</p>';
    }
    ?>
 

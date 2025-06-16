@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700&display=swap');
 
 :root{
-   --main-color:#2980b9;
+   --main-color:#000000;
    --orange:#f39c12;
    --red:#e74c3c;
    --black:#333;
    --white:#fff;
    --light-color:#666;
    --light-bg:#eee;
-   /*--border:;*/
-   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+   --border: .1rem #999 solid;
+   --box-shadow:0 .1rem 1rem  rgba(0,0,0,.3);
 }
 
 *{
@@ -70,20 +70,27 @@ section{
    border-radius: .5rem;
    padding:1rem 3rem;
    font-size: 1.7rem;
-   text-transform: capitalize;
+   /*text-transform: capitalize;*/
    color:var(--white);
    cursor: pointer;
    text-align: center;
+   transition: .5s linear;
 }
 
 .btn:hover,
 .delete-btn:hover,
 .option-btn:hover{
-   background:  #6B8A7A;
+   background:  rgb(145, 45, 5);
+   color: #eee;
+   transition: .5s linear;
 }
 
 .btn{
-   background: linear-gradient(180deg, #6B8A7A, #254336);
+   /*background: linear-gradient(180deg, #6B8A7A, #254336);*/
+   background: linear-gradient(180deg,coral,lightcoral);
+   border: var(--border);
+   box-shadow: var(--box-shadow);
+   color: #333;
 }
 
 .option-btn{
@@ -182,27 +189,27 @@ section{
 .header .flex .navbar a{
    margin:0 rem;
    font-size: initial;
-   color: wheat;
+   color: var(--black);
    padding: 2rem;
    font-weight: bold;
 }
 
 .header .flex .navbar a:hover{
-   color:white;
+   color:var(--light-bg);
    text-decoration: none;
-   background-color: #6B8A7A;
+   /*background-color: #6B8A7A;*/
 }
 
 
 .header .flex .icons > *{
-   margin-left: 1rem;
-   font-size: inherit;
+   margin-left: 2rem;
+   font-size: initial;
    cursor: pointer;
-   color: #f5deb3;
+   color: var(--black);
 }
 
 .header .flex .icons > *:hover{
-   color: #6B8A7A;
+   color: var(--light-bg);
 }
 
 .header .flex .icons a span{
@@ -239,7 +246,7 @@ section{
 }
 
 .home-bg{
-   background:url(../images/gr.png) no-repeat;
+   /*background:url(../images/home-bg.png) no-repeat;*/
    background-size: cover;
    background-position: center;
 }
@@ -270,13 +277,13 @@ section{
 
 .home-bg .home .slide .content span{
    font-size: 2rem;
-   color:var(--white);
+   color:var(--black);
 }
 
 .home-bg .home .slide .content h3{
    margin-top: 1rem;
    font-size: 4rem;
-   color:var(--white);
+   color:var(--black);
    text-transform: uppercase;
 }
 
@@ -291,11 +298,13 @@ section{
 
 .category .slide{
    margin-bottom: 5rem;
+   margin-top: 5rem;
    box-shadow: var(--box-shadow);
   /*border:;*/
    text-align: center;
    padding:2rem;
-      background: linear-gradient(180deg, #6B8A7A, #254336);
+   /*background: linear-gradient(180deg, #6B8A7A, #254336);*/
+   background: linear-gradient(180deg,coral,lightcoral);
    border-radius: 10rem;
 }
 
@@ -369,7 +378,7 @@ section{
 .home-products .slide .flex .price{
    margin:1rem 0;
    font-size: 2rem;
-   color:green;
+   color:var(--red);
 }
 
 .home-products .slide .fa-heart,
@@ -919,6 +928,7 @@ section{
    display: flex;
    flex-wrap: wrap;
    gap:1.5rem;
+   justify-content: center;
    align-items: flex-start;
 }
 
@@ -978,7 +988,7 @@ section{
 }
 
 .footer .grid .box a:hover{
-   color: #6B8A7A;
+   color: var(--light-bg);
 }
 
 .footer .grid .box a:hover i{
@@ -1111,22 +1121,18 @@ section{
 }
 /* News Letter Section Start*/
 .newsletter{
-    background: url(../images/gadgets-office-supplies.jpg) no-repeat;
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    padding:4rem 4rem;
-    text-align: center;
-    margin-top: -40rem;
-   
-margin: auto;
-width: 80%;
-margin-top: 3rem;
-
-padding-bottom: 2rem;
-    
-
+   /*background: url(../images/gadgets-office-supplies.jpg) no-repeat;*/
+   background-blend-mode: multiply;
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   padding:4rem 4rem;
+   text-align: center;
+   margin-top: -40rem;
+   margin: auto;
+   width: 80%;
+   margin-top: 3rem;
+   padding-bottom: 2rem;
 }
 
 .newsletter h1{
