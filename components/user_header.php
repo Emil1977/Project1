@@ -1,15 +1,4 @@
-<?php
-   if(isset($message)){
-      foreach($message as $message){
-         echo '
-         <div class="message">
-            <span>'.$message.'</span>
-            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
-         </div>
-         ';
-      }
-   }
-?>
+
 
 <header class="header">
 
@@ -18,12 +7,14 @@
       <a href="home.php" class="logo">By<span> Smilla</span></a>
 
       <nav class="navbar">
-         <a href="home.php">Home</a>
-         <a href="shop.php">Shop Now</a>
-         <a href="orders.php">Orders</a>
+         <a href="home.php">Startseite</a>
+         <a href="shop.php">Einkaufen</a>
+         <a href="orders.php">Bestellungen</a>
          <!--<a href="contact.php">Contact Us</a>
          <a href="about.php">About Us</a>-->
       </nav>
+
+
 
       <div class="icons">
          <?php
@@ -36,7 +27,7 @@
             $total_cart_counts = $count_cart_items->rowCount();
          ?>
          <div id="menu-btn" class="fas fa-bars"></div>
-         <a href="search_page.php"><i class="fas fa-search"></i>Search</a>
+         <a href="search_page.php"><i class="fas fa-search"></i>Suchen</a>
          <a href="wishlist.php"><i class="fas fa-heart"></i><span> <?= $total_wishlist_counts; ?> </span></a>
          <a href="cart.php"><i class="fas fa-shopping-cart"></i><span> <?= $total_cart_counts; ?> </span></a>
          <div id="user-btn" class="fas fa-user"></div>
@@ -72,5 +63,20 @@
       </div>
 
    </section>
+
+
+         <?php
+   if(isset($message)){
+      foreach($message as $message){
+         echo '
+         <div class="message">
+            <span>'.$message.'</span>
+            <i class="fas fa-times" onclick="this.parentElement.remove();"></i>
+         </div>
+         ';
+      }
+   }
+?>
+
 
 </header>

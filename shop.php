@@ -58,12 +58,12 @@ include 'components/wishlist_cart.php';
          <div class="price"><span> € </span><?= $fetch_product['price']; ?><span>,-</span></div>
          <input type="number" name="qty" class="qty" min="1" max="99" onkeypress="if(this.value.length == 2) return false;" value="1">
       </div>
-      <input type="submit" value="add to cart" class="btn" name="add_to_cart">
+      <input type="submit" value="In den Warenkorb" class="btn" name="add_to_cart">
    </form>
    <?php
       }
    }else{
-      echo '<p class="empty">no products found!</p>';
+      echo '<p class="empty">Keine Produkte gefunden!</p>';
    }
    ?>
 

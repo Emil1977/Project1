@@ -21,7 +21,7 @@ if(isset($_POST['order'])){
    $email = filter_var($email, FILTER_SANITIZE_STRING);
    $method = $_POST['method'];
    $method = filter_var($method, FILTER_SANITIZE_STRING);
-   $address = 'flat no. '. $_POST['flat'] .', '. $_POST['street'] .', '. $_POST['city'] .', '. $_POST['state'] .', '. $_POST['country'] .' - '. $_POST['pin_code'];
+   $address = 'flat no. '. $_POST['flat'] .', '. $_POST['street'] .', '. $_POST['city'];
    $address = filter_var($address, FILTER_SANITIZE_STRING);
    $total_products = $_POST['total_products'];
    $total_price = $_POST['total_price'];
@@ -37,9 +37,9 @@ if(isset($_POST['order'])){
       $delete_cart = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
       $delete_cart->execute([$user_id]);
 
-      $message[] = 'order placed successfully!';
+      $message[] = 'In den Warenkorb gelegt!';
    }else{
-      $message[] = 'your cart is empty';
+      $message[] = 'Dein Warenkorb ist leer';
    }
 
 }
@@ -100,51 +100,39 @@ if(isset($_POST['order'])){
       <div class="flex">
          <div class="inputBox">
             <span>Vor. / Nachname :</span>
-            <input type="text" name="name" placeholder="enter your name" class="box" maxlength="20" required>
+            <input type="text" name="name" placeholder="Vor- & Nachname" class="box" maxlength="20" required>
          </div>
          <div class="inputBox">
             <span>Telefonnummer :</span>
-            <input type="number" name="number" placeholder="enter your number" class="box" min="0" max="9999999999" onkeypress="if(this.value.length == 10) return false;" required>
+            <input type="number" name="number" placeholder="Telefonnummer" class="box" min="0" max="9999999999" onkeypress="if(this.value.length == 10) return false;" required>
          </div>
          <div class="inputBox">
             <span>Emailadresse :</span>
-            <input type="email" name="email" placeholder="enter your email" class="box" maxlength="50" required>
+            <input type="email" name="email" placeholder="E-Mail Adresse" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
             <span>Wie möchtest Du Bezahlen? :</span>
             <select name="method" class="box" required>
-               <option value="cash on delivery">PayPal</option>
-               <option value="credit card">Credit Card</option>
-               <option value="paytm">Überweiseung</option>
+               <option value="PayPal">PayPal</option>
+               <option value="Kreditkarte">Kreditkarte</option>
+               <option value="Überweisung">Überweiseung</option>
             </select>
          </div>
          <div class="inputBox">
             <span>Staße Hausnummer :</span>
-            <input type="text" name="flat" placeholder="e.g. Flat number" class="box" maxlength="50" required>
+            <input type="text" name="flat" placeholder="Straße Hausenummer" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
             <span>Postleitzahl :</span>
-            <input type="text" name="street" placeholder="Street name" class="box" maxlength="50" required>
+            <input type="text" name="street" placeholder="Postleitzahl" class="box" maxlength="50" required>
          </div>
          <div class="inputBox">
             <span>Stadt :</span>
-            <input type="text" name="city" placeholder="Kathmandu" class="box" maxlength="50" required>
-         </div>
-         <div class="inputBox">
-            <span>Province:</span>
-            <input type="text" name="state" placeholder="Bagmati" class="box" maxlength="50" required>
-         </div>
-         <div class="inputBox">
-            <span>Country :</span>
-            <input type="text" name="country" placeholder="Nepal" class="box" maxlength="50" required>
-         </div>
-         <div class="inputBox">
-            <span>ZIP CODE :</span>
-            <input type="number" min="0" name="pin_code" placeholder="e.g. 56400" min="0" max="999999" onkeypress="if(this.value.length == 6) return false;" class="box" required>
+            <input type="text" name="city" placeholder="Stadt" class="box" maxlength="50" required>
          </div>
       </div>
 
-      <input type="submit" name="order" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>" value="place order">
+      <input type="submit" name="order" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>" value="Bestellen">
 
    </form>
 
